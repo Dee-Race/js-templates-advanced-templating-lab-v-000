@@ -33,7 +33,7 @@ function createRecipe() {
 function displayEditForm() {
   var name = document.getElementsByName("name").value;
   var description = document.getElementsByName("description").value;
-  var ingredients = document.prototype.map.call(document.getElementsByName('ingredients'), (ingredient) => {
+  var ingredients = Array.prototype.map.call(document.getElementsByName('ingredients'), (ingredient) => {
     return ingredient.value
   })
   var recipe = {name, description, ingredients, submitAction: 'updateRecipe()'}
