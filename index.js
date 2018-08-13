@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 function createRecipe() {
   var name = document.getElementsByName("name").value;
   var description = document.getElementsByName("description").value;
-  var ingredients = document.prototype.map.call(document.getElementsByName('ingredients'), (ingredient) => {
+  var ingredients = Array.prototype.map.call(document.getElementsByName('ingredients'), (ingredient) => {
     return ingredient.value
   })
   return {name, description, ingredients};
