@@ -14,13 +14,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
   init()
 })
 
-function createRecipe() {
+function recipeAttrs() {
   var name = document.getElementsByName("name").value;
   var description = document.getElementsByName("description").value;
   var ingredients = Array.prototype.map.call(document.getElementsByName('ingredients'), (ingredient) => {
     return ingredient.value
   })
   return {name, description, ingredients};
+}
+
+function createRecipe() {
+  var recipe = recipeAttrs();
 
   var recipeTemplate = Handlebars.compile(document.getElementById('recipe-template').innerHTML);
   document.getElementsByTagName('main').innerHTML += recipeTemplate(recipe);
@@ -38,12 +42,7 @@ function displayEditForm() {
 }
 
 function updateRecipe() {
-  var name = document.getElementsByName("name").value;
-  var description = document.getElementsByName("description").value;
-  var ingredients = document.prototype.map.call(document.getElementsByName('ingredients'), (ingredient) => {
-    return ingredient.value
-  })
-  return {name, description, ingredients};
+  var recipe = recipeAttrs()
 
   var editRecipeTemplate = Handlebars.compile(document.getElementById('recipe-template').innerHTML);
   document.getElementById('main').innerHTML += editRecipeTemplate(recipe);
